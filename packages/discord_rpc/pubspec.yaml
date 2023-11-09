@@ -1,0 +1,20 @@
+name: discord_rpc
+description: "Partial implementation of Discord RPC"
+version: 0.0.0
+publish_to: none
+
+environment:
+    sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+    utilx:
+        git:
+            url: https://github.com/yukino-org/packages.git
+            ref: dart_utilx
+    web_socket_channel: ^2.4.0
+
+dev_dependencies:
+    devx:
+        git:
+            url: https://github.com/yukino-org/packages.git
+            ref: dart_devx
