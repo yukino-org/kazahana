@@ -37,6 +37,9 @@ jobs:
             - name: 🚧 Do prerequisites
               run: |
                   npm ci
+                  (cd packages/shared; dart pub get)
+                  (cd packages/anilist; dart pub get)
+                  (cd packages/discord_rpc; dart pub get)
                   flutter pub get
                   dart run cli/prerequisites.dart
 
