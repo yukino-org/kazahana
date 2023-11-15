@@ -1,6 +1,6 @@
 import 'package:kazahana/core/exports.dart';
-import '../../exports.dart';
-import 'view.dart';
+import 'package:kazahana/ui/exports.dart';
+import 'package:kazahana/ui/pages/view/view.dart';
 
 class ViewPageRoute extends RoutePage {
   final RegExp pattern = RegExp(r'^\/view\/(\d+)$');

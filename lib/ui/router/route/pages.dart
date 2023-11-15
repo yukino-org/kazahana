@@ -1,12 +1,12 @@
 import 'package:kazahana/core/exports.dart';
-import '../../pages/anilist/route.dart';
-import '../../pages/home/route.dart';
-import '../../pages/modules/route.dart';
-import '../../pages/search/route.dart';
-import '../../pages/settings/route.dart';
-import '../../pages/view/route.dart';
-import 'info.dart';
-import 'page.dart';
+import 'package:kazahana/ui/pages/anilist/route.dart';
+import 'package:kazahana/ui/pages/home/route.dart';
+import 'package:kazahana/ui/pages/modules/route.dart';
+import 'package:kazahana/ui/pages/search/route.dart';
+import 'package:kazahana/ui/pages/settings/route.dart';
+import 'package:kazahana/ui/pages/view/route.dart';
+import 'package:kazahana/ui/router/route/info.dart';
+import 'package:kazahana/ui/router/route/page.dart';
 
 abstract class RoutePages {
   static final HomePageRoute home = HomePageRoute();

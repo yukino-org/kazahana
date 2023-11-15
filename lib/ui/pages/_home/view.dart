@@ -1,7 +1,7 @@
 import 'package:kazahana/core/exports.dart';
-import '../../exports.dart';
-import 'components/exports.dart';
-import 'provider.dart';
+import 'package:kazahana/ui/exports.dart';
+import 'package:kazahana/ui/pages/_home/components/exports.dart';
+import 'package:kazahana/ui/pages/_home/provider.dart';
 
 class UnderScoreHomePage extends StatelessWidget {
   const UnderScoreHomePage({

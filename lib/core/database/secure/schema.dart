@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import '../../exports.dart';
+import 'package:kazahana/core/exports.dart';
 
 part 'schema.g.dart';
 

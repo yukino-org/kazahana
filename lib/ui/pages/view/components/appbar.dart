@@ -1,6 +1,6 @@
 import 'package:kazahana/core/exports.dart';
-import '../../../exports.dart';
-import '../provider.dart';
+import 'package:kazahana/ui/exports.dart';
+import 'package:kazahana/ui/pages/view/provider.dart';
 
 class ViewPageAppBar extends StatelessWidget implements PreferredSizeWidget {
   const ViewPageAppBar({

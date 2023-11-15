@@ -1,7 +1,7 @@
 import 'package:kazahana/core/exports.dart' hide SearchBar;
-import '../../exports.dart';
-import 'components/exports.dart';
-import 'provider.dart';
+import 'package:kazahana/ui/exports.dart';
+import 'package:kazahana/ui/pages/search/components/exports.dart';
+import 'package:kazahana/ui/pages/search/provider.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({

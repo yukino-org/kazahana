@@ -1,9 +1,9 @@
 import 'package:kazahana/core/exports.dart';
-import '../../../../../exports.dart';
-import '../../../provider.dart';
-import 'body.dart';
-import 'hero.dart';
-import 'provider.dart';
+import 'package:kazahana/ui/exports.dart';
+import 'package:kazahana/ui/pages/anilist/components/body/profile/body.dart';
+import 'package:kazahana/ui/pages/anilist/components/body/profile/hero.dart';
+import 'package:kazahana/ui/pages/anilist/components/body/profile/provider.dart';
+import 'package:kazahana/ui/pages/anilist/provider.dart';
 
 class AnilistPageProfileBody extends StatefulWidget {
   const AnilistPageProfileBody({

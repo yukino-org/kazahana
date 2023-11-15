@@ -1,6 +1,6 @@
-import '../../utils/exports.dart';
-import 'route.dart';
-import 'routes/exports.dart';
+import 'package:kazahana/core/internals/router/route.dart';
+import 'package:kazahana/core/internals/router/routes/exports.dart';
+import 'package:kazahana/core/utils/exports.dart';
 
 abstract class InternalRoutes {
   static AnilistAuthRoute anilistAuth = AnilistAuthRoute();

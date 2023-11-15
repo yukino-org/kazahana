@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../exports.dart';
-import 'view.dart';
+import 'package:kazahana/ui/exports.dart';
+import 'package:kazahana/ui/pages/modules/view.dart';
 
 class ModulesPageRoute extends RoutePage {
   @override

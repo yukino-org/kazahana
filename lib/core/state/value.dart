@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'states.dart';
+import 'package:kazahana/core/state/states.dart';
 
 class StatedValue<T> {
   StatedValue({

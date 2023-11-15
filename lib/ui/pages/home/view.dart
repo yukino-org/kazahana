@@ -1,7 +1,7 @@
 import 'package:kazahana/core/exports.dart';
-import '../../exports.dart';
-import '../_home/view.dart';
-import '../_splash/view.dart';
+import 'package:kazahana/ui/exports.dart';
+import 'package:kazahana/ui/pages/_home/view.dart';
+import 'package:kazahana/ui/pages/_splash/view.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({

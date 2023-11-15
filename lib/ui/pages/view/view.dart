@@ -1,7 +1,7 @@
 import 'package:kazahana/core/exports.dart';
-import '../../exports.dart';
-import 'components/exports.dart';
-import 'provider.dart';
+import 'package:kazahana/ui/exports.dart';
+import 'package:kazahana/ui/pages/view/components/exports.dart';
+import 'package:kazahana/ui/pages/view/provider.dart';
 
 class ViewPage extends StatelessWidget {
   const ViewPage({

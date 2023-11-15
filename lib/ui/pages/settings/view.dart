@@ -1,6 +1,6 @@
 import 'package:kazahana/core/exports.dart';
-import '../../exports.dart';
-import 'components/exports.dart';
+import 'package:kazahana/ui/exports.dart';
+import 'package:kazahana/ui/pages/settings/components/exports.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({

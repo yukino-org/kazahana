@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../exports.dart';
-import 'view.dart';
+import 'package:kazahana/ui/exports.dart';
+import 'package:kazahana/ui/pages/search/view.dart';
 
 class SearchPageRoute extends RoutePage {
   @override

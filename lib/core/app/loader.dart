@@ -1,10 +1,10 @@
-import '../anilist/exports.dart';
-import '../database/exports.dart';
-import '../internals/exports.dart';
-import '../paths.dart';
-import '../tenka/exports.dart';
-import '../translator/exports.dart';
-import 'events.dart';
+import 'package:kazahana/core/anilist/exports.dart';
+import 'package:kazahana/core/app/events.dart';
+import 'package:kazahana/core/database/exports.dart';
+import 'package:kazahana/core/internals/exports.dart';
+import 'package:kazahana/core/paths.dart';
+import 'package:kazahana/core/tenka/exports.dart';
+import 'package:kazahana/core/translator/exports.dart';
 
 abstract class AppLoader {
   static bool ready = false;

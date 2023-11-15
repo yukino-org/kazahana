@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:kazahana/core/exports.dart';
-import '../../../exports.dart';
+import 'package:kazahana/ui/exports.dart';
 
 class UnderScoreHomePageAppBar extends StatefulWidget
     implements PreferredSizeWidget {

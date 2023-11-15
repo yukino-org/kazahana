@@ -1,6 +1,6 @@
 import 'package:kazahana/core/exports.dart';
-import '../../../exports.dart';
-import 'tiles/exports.dart';
+import 'package:kazahana/ui/exports.dart';
+import 'package:kazahana/ui/pages/settings/components/tiles/exports.dart';
 
 class ApperanceSettings extends StatefulWidget {
   const ApperanceSettings({

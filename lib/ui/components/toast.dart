@@ -1,6 +1,6 @@
 import 'package:kazahana/core/exports.dart';
-import '../utils/exports.dart';
-import 'super_imposer.dart';
+import 'package:kazahana/ui/components/super_imposer.dart';
+import 'package:kazahana/ui/utils/exports.dart';
 
 class Toast extends StatefulWidget {
   const Toast({

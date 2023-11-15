@@ -1,5 +1,5 @@
 import 'package:kazahana/core/exports.dart';
-import 'exports.dart';
+import 'package:kazahana/ui/exports.dart';
 
 class BaseApp extends StatefulWidget {
   const BaseApp({

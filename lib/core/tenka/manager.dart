@@ -1,7 +1,7 @@
+import 'package:kazahana/core/database/exports.dart';
+import 'package:kazahana/core/paths.dart';
 import 'package:path/path.dart' as path;
 import 'package:tenka/tenka.dart';
-import '../database/exports.dart';
-import '../paths.dart';
 
 abstract class TenkaManager {
   static late final TenkaRepository repository;

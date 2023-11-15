@@ -1,6 +1,6 @@
 import 'package:kazahana/core/exports.dart';
 import 'package:kazahana/core/player/video_player.dart';
-import 'provider.dart';
+import 'package:kazahana/ui/pages/view/components/content/provider.dart';
 
 List<String> entries = <String>['A', 'B', 'C'];
 

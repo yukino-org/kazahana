@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../translator/exports.dart';
+import 'package:kazahana/core/translator/exports.dart';
 
 abstract class ForegroundColors {
   static const Color red = Color(0xffef4444);

@@ -1,9 +1,10 @@
 import 'dart:convert';
+
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:kazahana/core/app/exports.dart';
+import 'package:kazahana/core/database/exports.dart';
 import 'package:utilx/locale.dart';
 import 'package:utilx/utilx.dart';
-import '../app/exports.dart';
-import '../database/exports.dart';
 
 part 'translation.g.dart';
 

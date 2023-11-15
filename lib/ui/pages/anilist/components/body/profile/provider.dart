@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:kazahana/core/exports.dart';
-import '../../../provider.dart';
+import 'package:kazahana/ui/pages/anilist/provider.dart';
 
 class AnilistProfileCategory {
   const AnilistProfileCategory(this.type, this.status);

@@ -1,11 +1,12 @@
 import 'dart:async';
 import 'dart:convert';
+
+import 'package:kazahana/core/app/events.dart';
+import 'package:kazahana/core/database/settings/schema.dart';
+import 'package:kazahana/core/paths.dart';
+import 'package:kazahana/core/utils/exports.dart';
 import 'package:path/path.dart' as path;
 import 'package:perks/perks.dart';
-import '../../app/events.dart';
-import '../../paths.dart';
-import '../../utils/exports.dart';
-import 'schema.dart';
 
 abstract class SettingsDatabase {
   static final PerksFileAdapter adapter =

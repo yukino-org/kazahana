@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:kazahana/core/utils/exports.dart';
 import 'package:kazahana/ui/utils/relative_scale.dart';
-import '../../utils/exports.dart';
 
 part 'schema.g.dart';
 

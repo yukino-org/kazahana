@@ -1,6 +1,5 @@
 import 'package:kazahana/core/exports.dart';
 import 'package:kazahana/ui/components/exports.dart';
-import 'body_padding.dart';
 
 class ScrollableRow extends StatefulWidget {
   const ScrollableRow(

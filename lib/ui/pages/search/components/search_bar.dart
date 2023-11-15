@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:kazahana/core/exports.dart';
-import '../../../exports.dart';
-import '../provider.dart';
+import 'package:kazahana/ui/exports.dart';
+import 'package:kazahana/ui/pages/search/provider.dart';
 
 class SearchBar extends StatefulWidget implements PreferredSizeWidget {
   const SearchBar({

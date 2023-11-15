@@ -1,5 +1,5 @@
-import '../../../anilist/exports.dart';
-import '../route.dart';
+import 'package:kazahana/core/anilist/exports.dart';
+import 'package:kazahana/core/internals/router/route.dart';
 
 class AnilistAuthRoute extends InternalRoute {
   @override

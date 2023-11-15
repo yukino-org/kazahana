@@ -1,7 +1,7 @@
 import 'package:kazahana/core/exports.dart';
-import '../../exports.dart';
-import 'components/exports.dart';
-import 'provider.dart';
+import 'package:kazahana/ui/exports.dart';
+import 'package:kazahana/ui/pages/anilist/components/exports.dart';
+import 'package:kazahana/ui/pages/anilist/provider.dart';
 
 class AnilistPage extends StatelessWidget {
   const AnilistPage({

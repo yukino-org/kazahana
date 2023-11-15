@@ -1,6 +1,6 @@
 import 'package:kazahana/core/exports.dart';
-import '../../../../../exports.dart';
-import 'provider.dart';
+import 'package:kazahana/ui/exports.dart';
+import 'package:kazahana/ui/pages/anilist/components/body/profile/provider.dart';
 
 class AnilistPageProfileBodyHero extends StatelessWidget {
   const AnilistPageProfileBodyHero({

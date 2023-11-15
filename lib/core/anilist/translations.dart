@@ -1,7 +1,7 @@
 import 'package:anilist/anilist.dart';
+import 'package:kazahana/core/translator/exports.dart';
+import 'package:kazahana/core/utils/exports.dart';
 import 'package:tenka/tenka.dart';
-import '../translator/exports.dart';
-import '../utils/exports.dart';
 
 extension AnilistFuzzyDateTUtils on AnilistFuzzyDate {
   String get pretty => PrettyDates.constructDateString(

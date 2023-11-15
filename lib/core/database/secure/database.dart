@@ -1,10 +1,11 @@
 import 'dart:convert';
+
 import 'package:encrypt/encrypt.dart';
+import 'package:kazahana/core/database/secure/schema.dart';
+import 'package:kazahana/core/paths.dart';
+import 'package:kazahana/core/utils/exports.dart';
 import 'package:path/path.dart' as path;
 import 'package:perks/perks.dart';
-import '../../paths.dart';
-import '../../utils/exports.dart';
-import 'schema.dart';
 
 abstract class SecureDatabase {
   static final Key key = Key.fromUtf8('ThIs_Is_HiGhLy_SeCuRe_KeY_nO_cAp');

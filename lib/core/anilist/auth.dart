@@ -1,9 +1,9 @@
 import 'package:anilist/anilist.dart';
+import 'package:kazahana/core/anilist/credentials.dart';
+import 'package:kazahana/core/app/exports.dart';
+import 'package:kazahana/core/database/exports.dart';
+import 'package:kazahana/core/packages.dart';
 import 'package:kazahana/ui/exports.dart';
-import '../app/exports.dart';
-import '../database/exports.dart';
-import '../packages.dart';
-import 'credentials.dart';
 
 abstract class AnilistAuth {
   static const String baseURL = 'https://anilist.co/api/v2';

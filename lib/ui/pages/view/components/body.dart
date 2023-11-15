@@ -1,9 +1,9 @@
 import 'package:kazahana/core/exports.dart';
-import '../../../exports.dart';
-import '../provider.dart';
-import 'content/content.dart';
-import 'hero.dart';
-import 'overview.dart';
+import 'package:kazahana/ui/exports.dart';
+import 'package:kazahana/ui/pages/view/components/content/content.dart';
+import 'package:kazahana/ui/pages/view/components/hero.dart';
+import 'package:kazahana/ui/pages/view/components/overview.dart';
+import 'package:kazahana/ui/pages/view/provider.dart';
 
 enum _ViewPageTabs {
   overview,

@@ -1,4 +1,4 @@
-import '../translator/exports.dart';
+import 'package:kazahana/core/translator/exports.dart';
 
 abstract class PrettyDurations {
   static String prettyHoursMinutesShort(

@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
+import 'package:kazahana/core/paths.dart';
+import 'package:kazahana/core/utils/exports.dart';
 import 'package:path/path.dart' as path;
 import 'package:perks/perks.dart';
-import '../../paths.dart';
-import '../../utils/exports.dart';
 
 abstract class CacheDatabase {
   static const String kDataKey = 'data';

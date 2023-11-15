@@ -1,5 +1,5 @@
+import 'package:kazahana/core/translator/exports.dart';
 import 'package:tenka/tenka.dart';
-import '../translator/exports.dart';
 
 extension TenkaTypeUtils on TenkaType {
   String getTitleCase(final Translation translation) => switch (this) {

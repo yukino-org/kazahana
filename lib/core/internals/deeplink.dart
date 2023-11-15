@@ -1,8 +1,8 @@
+import 'package:kazahana/core/app/exports.dart';
+import 'package:kazahana/core/internals/router/exports.dart';
+import 'package:kazahana/core/packages.dart';
 import 'package:kazahana/ui/exports.dart';
 import 'package:uni_links/uni_links.dart' as uni_links;
-import '../app/exports.dart';
-import '../packages.dart';
-import 'router/exports.dart';
 
 abstract class Deeplink {
   static Future<void> initializeAfterLoad() async {
