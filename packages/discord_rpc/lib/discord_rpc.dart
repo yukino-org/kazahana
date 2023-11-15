@@ -1,3 +1,6 @@
+// ignore: unnecessary_library_directive
+library discord_rpc;
+
 import 'dart:convert';
 import 'dart:io';
 import 'package:utilx/utils/string.dart';
