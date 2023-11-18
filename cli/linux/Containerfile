@@ -1,0 +1,24 @@
+FROM ubuntu:22.04
+
+RUN apt update && apt install -y \
+    curl git file unzip xz-utils \
+    clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev libstdc++-12-dev \
+    x11-apps mpv libmpv-dev
+
+RUN useradd -ms /bin/bash dev
+USER dev
+WORKDIR /home/dev
+
+RUN curl --fail -O https://nodejs.org/dist/v20.9.0/node-v20.9.0-linux-x64.tar.xz && \
+    tar -xvf ./node-v20.9.0-linux-x64.tar.xz && \
+    rm ./node-v20.9.0-linux-x64.tar.xz && \
+    mv ./node-v20.9.0-linux-x64 node
+
+RUN git clone https://github.com/flutter/flutter.git -b beta
+
+ENV PATH "$PATH:/home/dev/node/bin:/home/dev/flutter/bin"
+
+RUN node -v
+RUN flutter doctor -v
+RUN flutter --disable-analytics
+RUN dart --disable-analytics

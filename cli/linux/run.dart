@@ -1,18 +1,19 @@
 import 'dart:io';
-import 'prerequisites.dart' as prerequisites;
-import 'utils/exports.dart';
+import '../prerequisites.dart' as prerequisites;
+import '../utils/exports.dart';
 
 const Logger _logger = Logger('run');
 
 Future<void> main(final List<String> args) async {
-  await prerequisites.main(args);
+  if (!args.contains('--skip-build-runner')) {
+    await prerequisites.main(args);
+  }
   _logger.info('Starting...');
 
   final Process process = await Process.start(
     'flutter',
-    <String>['run'],
+    <String>['run', '--verbose', '-d', 'linux'],
     mode: ProcessStartMode.inheritStdio,
-    runInShell: true,
   );
 
   final int exitCode = await process.exitCode;
