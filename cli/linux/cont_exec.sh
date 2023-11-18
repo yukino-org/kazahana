@@ -10,13 +10,16 @@ image_name="kazahana-dev/ubuntu"
 cont_name="kazahana-debug-run"
 
 host_kazahana_dir="${root_dir}"
-host_cont_cache_dir="${root_dir}/.cont-cache"
+host_cont_cache_dir="${host_kazahana_dir}/.cont-cache"
 host_cont_dart_cache_global_dir="${host_cont_cache_dir}/.dart-cache_global"
 host_cont_dart_tool_global_dir="${host_cont_cache_dir}/.dart-tool_global"
 host_cont_flutter_global_file="${host_cont_cache_dir}/.flutter_global"
 host_cont_flutter_cache_global_dir="${host_cont_cache_dir}/.flutter-cache_global"
 host_cont_pub_cache_global_dir="${host_cont_cache_dir}/.pub-cache_global"
+host_cont_build_local_dir="${host_cont_cache_dir}/.build_local"
 host_cont_dart_tool_local_dir="${host_cont_cache_dir}/.dart_tool_local"
+host_cont_flutter_plugins_local_file="${host_cont_cache_dir}/.flutter-plugins_local"
+host_cont_flutter_plugins_deps_local_file="${host_cont_cache_dir}/.flutter-plugins-dependencies_local"
 host_cont_pub_cache_local_dir="${host_cont_cache_dir}/.pub-cache_local"
 
 if ! [[ -d "${host_cont_cache_dir}" ]]; then
@@ -26,7 +29,10 @@ if ! [[ -d "${host_cont_cache_dir}" ]]; then
     touch "${host_cont_flutter_global_file}"
     mkdir "${host_cont_flutter_cache_global_dir}"
     mkdir "${host_cont_pub_cache_global_dir}"
+    mkdir "${host_cont_build_local_dir}"
     mkdir "${host_cont_dart_tool_local_dir}"
+    touch "${host_cont_flutter_plugins_local_file}"
+    touch "${host_cont_flutter_plugins_deps_local_file}"
     mkdir "${host_cont_pub_cache_local_dir}"
 fi
 
@@ -37,7 +43,10 @@ cont_dart_tool_global_dir="${cont_home_dir}/.dart-tool"
 cont_flutter_global_file="${cont_home_dir}/.flutter"
 cont_flutter_cache_global_dir="${cont_home_dir}/flutter/bin/cache"
 cont_pub_cache_global_dir="${cont_home_dir}/.pub-cache"
+cont_build_local_dir="${cont_kazahana_dir}/build"
 cont_dart_tool_local_dir="${cont_kazahana_dir}/.dart_tool"
+cont_flutter_plugins_local_dir="${cont_kazahana_dir}/.flutter-plugins"
+cont_flutter_plugins_deps_local_dir="${cont_kazahana_dir}/.flutter-plugins-dependencies"
 cont_pub_cache_local_dir="${cont_kazahana_dir}/.pub-cache"
 
 cont_flags=()
@@ -78,14 +87,17 @@ podman run --rm -it \
     --no-hosts \
     --name "${cont_name}" \
     -v "${host_kazahana_dir}:${cont_kazahana_dir}:z" \
-    -v "${host_cont_cache_dir}" \
     -v "${host_cont_dart_cache_global_dir}:${cont_dart_cache_global_dir}:z" \
     -v "${host_cont_dart_tool_global_dir}:${cont_dart_tool_global_dir}:z" \
     -v "${host_cont_flutter_global_file}:${cont_flutter_global_file}:z" \
     -v "${host_cont_flutter_cache_global_dir}:${cont_flutter_cache_global_dir}:z" \
     -v "${host_cont_pub_cache_global_dir}:${cont_pub_cache_global_dir}:z" \
+    -v "${host_cont_build_local_dir}:${cont_build_local_dir}:z" \
     -v "${host_cont_dart_tool_local_dir}:${cont_dart_tool_local_dir}:z" \
+    -v "${host_cont_flutter_plugins_local_file}:${cont_flutter_plugins_local_dir}:z" \
+    -v "${host_cont_flutter_plugins_deps_local_file}:${cont_flutter_plugins_deps_local_dir}:z" \
     -v "${host_cont_pub_cache_local_dir}:${cont_pub_cache_local_dir}:z" \
+    -v "${host_cont_cache_dir}" \
     -w "${cont_kazahana_dir}" \
     "${cont_flags[@]}" \
     "${image_name}" "$@"

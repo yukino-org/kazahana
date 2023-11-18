@@ -20,5 +20,3 @@ ENV PATH "$PATH:/home/dev/node/bin:/home/dev/flutter/bin"
 
 RUN node -v
 RUN flutter doctor -v
-RUN flutter --disable-analytics
-RUN dart --disable-analytics
