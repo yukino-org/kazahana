@@ -19,9 +19,11 @@ class AnilistPageLoginBody extends StatelessWidget {
               children: <Widget>[
                 Text(
                   AppMeta.name,
-                  style: Theme.of(context)
-                      .textTheme
-                      .headlineLarge!
+                  style: context.r
+                      .responsiveBuilder(
+                        () => Theme.of(context).textTheme.displaySmall!,
+                        md: () => Theme.of(context).textTheme.displayMedium!,
+                      )
                       .copyWith(fontFamily: Fonts.greatVibes),
                 ),
                 SizedBox(width: context.r.scale(1)),
@@ -39,7 +41,7 @@ class AnilistPageLoginBody extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(context.r.scale(0.5)),
                   child: SizedBox.square(
-                    dimension: context.r.scale(2.5),
+                    dimension: context.r.scale(3, md: 4),
                     child: Image.asset(
                       AssetPaths.anilistLogo,
                       fit: BoxFit.cover,
@@ -53,15 +55,18 @@ class AnilistPageLoginBody extends StatelessWidget {
             SizedBox(height: context.r.scale(1)),
             Text(
               context.t.trackYourProgressUsingAnilist,
-              style: Theme.of(context).textTheme.titleLarge,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
-            SizedBox(height: context.r.scale(1)),
+            SizedBox(height: context.r.scale(1.5)),
             TextButton.icon(
               icon: const Icon(Icons.login_rounded),
               label: Text(context.t.loginUsingAnilist),
-              style: TextButton.styleFrom(
-                backgroundColor: Theme.of(context).colorScheme.primary,
-                foregroundColor: Theme.of(context).colorScheme.onPrimary,
+              style: OutlinedButton.styleFrom(
+                backgroundColor:
+                    Theme.of(context).colorScheme.secondaryContainer,
+                foregroundColor:
+                    Theme.of(context).colorScheme.onSecondaryContainer,
+                textStyle: Theme.of(context).textTheme.bodySmall,
                 padding:
                     EdgeInsets.symmetric(horizontal: context.r.scale(0.75)),
                 shape: RoundedRectangleBorder(
@@ -71,7 +76,7 @@ class AnilistPageLoginBody extends StatelessWidget {
               onPressed: () async {
                 try {
                   final bool didLaunch = await launchUrl(
-                    Uri.parse(AnilistAuth.oauthURL),
+                    Uri.parse(AnilistAuth.oauthUrl),
                     mode: LaunchMode.externalApplication,
                   );
                   if (!didLaunch) {
@@ -80,9 +85,7 @@ class AnilistPageLoginBody extends StatelessWidget {
                 } catch (err) {
                   if (!context.mounted) return;
                   Toast(
-                    content: Text(
-                      '${context.t.somethingWentWrong} $err',
-                    ), //dart(use_build_context_synchronously)
+                    content: Text('${context.t.somethingWentWrong} $err'),
                   ).show();
                 }
               },

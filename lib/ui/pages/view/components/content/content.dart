@@ -40,7 +40,7 @@ class ViewPageContent extends StatelessWidget {
                       child: DropdownButtonHideUnderline(
                         child: DropdownButton<TenkaMetadata>(
                           hint: const Text('Select provider:'),
-                          items: provider.extensions
+                          items: provider.modules
                               .map(
                                 (final TenkaMetadata x) =>
                                     DropdownMenuItem<TenkaMetadata>(

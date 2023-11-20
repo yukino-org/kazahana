@@ -38,7 +38,7 @@ class AnilistGraphQLResponse {
 }
 
 abstract class AnilistGraphQL {
-  static final Uri baseURL = Uri.parse('https://graphql.anilist.co');
+  static final Uri baseUrl = Uri.parse('https://graphql.anilist.co');
   static const Map<String, String> defaultHeaders = <String, String>{
     'Content-Type': 'application/json',
     'Accept': 'application/json',
@@ -65,7 +65,7 @@ abstract class AnilistGraphQL {
     final bool retryOnExpiredSession = true,
   }) async {
     final http.Response resp = await http.client.post(
-      baseURL,
+      baseUrl,
       headers: <String, String>{
         ...defaultHeaders,
         ...additionalHeaders,

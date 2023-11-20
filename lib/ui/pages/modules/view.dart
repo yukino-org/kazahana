@@ -12,7 +12,7 @@ class ModulesPage extends StatelessWidget {
     required final TenkaMetadata metadata,
   }) =>
       () {
-        if (TenkaManager.repository.isInstalled(metadata)) {
+        if (TenkaManager.isModuleInstalled(metadata)) {
           provider.uninstall(metadata);
           return;
         }
@@ -26,7 +26,7 @@ class ModulesPage extends StatelessWidget {
   }) {
     final bool isInstalling = provider.installing.contains(metadata.id);
     final bool isUninstalling = provider.uninstalling.contains(metadata.id);
-    final bool isInstalled = TenkaManager.repository.isInstalled(metadata);
+    final bool isInstalled = TenkaManager.isModuleInstalled(metadata);
 
     final IconData icon;
     Color? iconColor;
@@ -56,8 +56,9 @@ class ModulesPage extends StatelessWidget {
         child: SizedBox.square(
           dimension: context.r.scale(1.5),
           child: Image.network(
-            TenkaManager.repository.resolver
-                .resolveURL((metadata.thumbnail as TenkaCloudDS).url),
+            TenkaManager.findStoreFromMetadataId(metadata.id)!
+                .resolveUrl((metadata.thumbnail as TenkaCloudDS).url)
+                .toString(),
           ),
         ),
       ),
@@ -81,7 +82,7 @@ class ModulesPage extends StatelessWidget {
         <String>[
           metadata.type.getTitleCase(context.t),
           context.t.byX(metadata.author),
-          'v${metadata.version}',
+          metadata.hash,
         ].join(' / '),
       ),
       trailing: IconButton(
@@ -103,10 +104,10 @@ class ModulesPage extends StatelessWidget {
             final _,
           ) =>
               Scaffold(
-            appBar: AppBar(title: Text(context.t.extensions)),
+            appBar: AppBar(title: Text(context.t.modules)),
             body: SingleChildScrollView(
               child: Column(
-                children: TenkaManager.repository.store.modules.values
+                children: TenkaManager.allModulesIterable()
                     .sortedBy((final TenkaMetadata x) => x.name)
                     .map(
                       (final TenkaMetadata x) => buildModuleTile(

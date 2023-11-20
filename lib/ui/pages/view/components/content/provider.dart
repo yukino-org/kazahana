@@ -14,19 +14,19 @@ class ViewPageContentProvider extends StatedChangeNotifier {
       StatedValue<List<SearchInfo>>();
 
   Future<void> initialize() async {
-    final String? lastUsedExtractorId = await getLastUsedExtractor(type);
-    final TenkaMetadata? lastUsedExtractor =
-        TenkaManager.repository.installed[lastUsedExtractorId];
-    if (lastUsedExtractor == null) return;
-    await change(lastUsedExtractor);
+    final String? lastUsedMetadataId = await getLastUsedExtractor(type);
+    if (lastUsedMetadataId == null) return;
+    final TenkaMetadata? lastUsedModule =
+        TenkaManager.findMetadata(lastUsedMetadataId);
+    if (lastUsedModule == null) return;
+    await change(lastUsedModule);
   }
 
   Future<void> change(final TenkaMetadata nMetadata) async {
     metadata = nMetadata;
-    extractor = await TenkaManager.getExtractor(metadata!);
+    extractor = await TenkaManager.getExtractor(nMetadata);
     notifyListeners();
-
-    await setLastUsedExtractor(type, id: metadata!.id);
+    await setLastUsedExtractor(type, nMetadata.id);
     await fetch();
   }
 
@@ -57,7 +57,6 @@ class ViewPageContentProvider extends StatedChangeNotifier {
     searches.waiting();
     computed.waiting();
     notifyListeners();
-
     final AnimeExtractor extractor = await getCastedExtractor();
     try {
       searches.finish(
@@ -72,10 +71,9 @@ class ViewPageContentProvider extends StatedChangeNotifier {
     }
     notifyListeners();
     if (searches.hasFailed) return;
-
     final String? lastComputedUrl = await getLastComputed(
       type: type,
-      id: metadata!.id,
+      metadataId: metadata!.id,
       mediaId: media.id,
     );
     final dynamic computedSearchInfo = (lastComputedUrl != null
@@ -83,7 +81,7 @@ class ViewPageContentProvider extends StatedChangeNotifier {
                 (final SearchInfo x) => x.url == lastComputedUrl,
               )
             : null) ??
-        IterableExtension(searches.value).firstOrNull;
+        searches.value.firstOrNull;
     if (computedSearchInfo == null) {
       computed.fail('Failed to find valid result');
     }
@@ -105,56 +103,56 @@ class ViewPageContentProvider extends StatedChangeNotifier {
 
   TenkaType get type => media.type.asTenkaType;
 
-  List<TenkaMetadata> get extensions => TenkaManager.repository.installed.values
-      .where((final TenkaMetadata x) => x.type == media.type.asTenkaType)
-      .toList();
+  List<TenkaMetadata> get modules => TenkaManager.allModules();
 
   static String getLastUsedExtractorKey(final TenkaType type) =>
       'view_last_used_${type.name}_extractor';
 
-  static Future<String?> getLastUsedExtractor(final TenkaType type) async {
+  static Future<String?> getLastUsedExtractor(
+    final TenkaType type,
+  ) async {
     final String? value =
         await CacheDatabase.get<String?>(getLastUsedExtractorKey(type));
-    return TenkaManager.repository.installed.containsKey(value) ? value : null;
+    return value;
   }
 
   static Future<void> setLastUsedExtractor(
-    final TenkaType type, {
-    required final String id,
-  }) async {
-    await CacheDatabase.set(getLastUsedExtractorKey(type), id);
+    final TenkaType type,
+    final String metadataId,
+  ) async {
+    await CacheDatabase.set(getLastUsedExtractorKey(type), metadataId);
   }
 
   static String getLastComputedKey({
     required final TenkaType type,
-    required final String id,
+    required final String metadataId,
     required final int mediaId,
   }) =>
-      'view_last_computed_${type.name}_${id}_$mediaId';
+      'view_last_computed_${type.name}_${metadataId}_$mediaId';
 
   static Future<String?> getLastComputed({
     required final TenkaType type,
-    required final String id,
+    required final String metadataId,
     required final int mediaId,
   }) async =>
       CacheDatabase.get<String?>(
         getLastComputedKey(
           type: type,
-          id: id,
+          metadataId: metadataId,
           mediaId: mediaId,
         ),
       );
 
   static Future<void> setLastComputed({
     required final TenkaType type,
-    required final String id,
+    required final String metadataId,
     required final int mediaId,
     required final int url,
   }) async {
     await CacheDatabase.set(
       getLastComputedKey(
         type: type,
-        id: id,
+        metadataId: metadataId,
         mediaId: mediaId,
       ),
       url,

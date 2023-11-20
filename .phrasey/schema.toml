@@ -135,8 +135,8 @@ name = "Overview"
 description = "Overview"
 
 [[keys]]
-name = "Extensions"
-description = "Extensions"
+name = "Modules"
+description = "Modules"
 
 [[keys]]
 name = "ByX"

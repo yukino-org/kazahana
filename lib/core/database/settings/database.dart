@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:convert';
-
 import 'package:kazahana/core/app/events.dart';
 import 'package:kazahana/core/database/settings/schema.dart';
 import 'package:kazahana/core/paths.dart';

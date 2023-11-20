@@ -1,7 +1,7 @@
 class AnilistToken {
   const AnilistToken(this.json);
 
-  factory AnilistToken.parseURL(final String url) {
+  factory AnilistToken.parseUrl(final String url) {
     final Map<String, String> queries = Uri.splitQueryString(url.split('#')[1]);
     queries['expires_at'] = (DateTime.now().millisecondsSinceEpoch +
             (int.parse(queries['expires_in']!) * 1000))

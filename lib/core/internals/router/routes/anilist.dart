@@ -7,7 +7,7 @@ class AnilistAuthRoute extends InternalRoute {
 
   @override
   Future<void> handle(final String route) async {
-    final AnilistToken token = AnilistToken.parseURL(route);
+    final AnilistToken token = AnilistToken.parseUrl(route);
     await AnilistAuth.authenticate(token);
   }
 

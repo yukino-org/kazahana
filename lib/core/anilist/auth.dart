@@ -6,7 +6,7 @@ import 'package:kazahana/core/packages.dart';
 import 'package:kazahana/ui/exports.dart';
 
 abstract class AnilistAuth {
-  static const String baseURL = 'https://anilist.co/api/v2';
+  static const String baseUrl = 'https://anilist.co/api/v2';
   static AnilistUser? user;
 
   static Future<void> initialize() async {
@@ -18,7 +18,6 @@ abstract class AnilistAuth {
     SecureDatabase.data.anilistToken = token;
     await SecureDatabase.save();
     updateAnilistClient(SecureDatabase.data.anilistToken);
-
     await fetchUser();
     if (user != null) {
       Toast(
@@ -55,7 +54,7 @@ abstract class AnilistAuth {
     AppEvents.controller.add(AppEvent.anilistStateChange);
   }
 
-  static String get oauthURL => Uri.encodeFull(
-        '$baseURL/oauth/authorize?client_id=${AnilistCredentials.clientId}&response_type=token',
+  static String get oauthUrl => Uri.encodeFull(
+        '$baseUrl/oauth/authorize?client_id=${AnilistCredentials.clientId}&response_type=token',
       );
 }

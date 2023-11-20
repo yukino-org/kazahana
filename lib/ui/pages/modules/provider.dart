@@ -7,7 +7,7 @@ class ModulesPageProvider extends StatedChangeNotifier {
   Future<void> install(final TenkaMetadata metadata) async {
     installing.add(metadata.id);
     notifyListeners();
-    await TenkaManager.repository.install(metadata);
+    await TenkaManager.installModule(metadata);
     if (!mounted) return;
     installing.remove(metadata.id);
     notifyListeners();
@@ -16,7 +16,7 @@ class ModulesPageProvider extends StatedChangeNotifier {
   Future<void> uninstall(final TenkaMetadata metadata) async {
     uninstalling.add(metadata.id);
     notifyListeners();
-    await TenkaManager.repository.uninstall(metadata);
+    await TenkaManager.uninstallModule(metadata);
     if (!mounted) return;
     uninstalling.remove(metadata.id);
     notifyListeners();
