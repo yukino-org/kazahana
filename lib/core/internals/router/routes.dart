@@ -3,10 +3,11 @@ import 'package:kazahana/core/internals/router/routes/exports.dart';
 import 'package:kazahana/core/utils/exports.dart';
 
 abstract class InternalRoutes {
-  static AnilistAuthRoute anilistAuth = AnilistAuthRoute();
+  static InternalSecondInstanceRoute ping = InternalSecondInstanceRoute();
+  static InternalAnilistAuthRoute anilistAuth = InternalAnilistAuthRoute();
 
-  static InternalRoute? findMatch(final String route) =>
-      all.firstWhereOrNull((final InternalRoute x) => x.matches(route));
+  static InternalRoute? findMatch(final InternalRouteRequest req) =>
+      all.firstWhereOrNull((final InternalRoute x) => x.matches(req));
 
-  static List<InternalRoute> get all => <InternalRoute>[anilistAuth];
+  static List<InternalRoute> get all => <InternalRoute>[ping, anilistAuth];
 }

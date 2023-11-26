@@ -5,6 +5,7 @@ import 'package:kazahana/core/internals/exports.dart';
 import 'package:kazahana/core/paths.dart';
 import 'package:kazahana/core/tenka/exports.dart';
 import 'package:kazahana/core/translator/exports.dart';
+import 'package:media_kit/media_kit.dart';
 
 abstract class AppLoader {
   static bool ready = false;
@@ -17,13 +18,15 @@ abstract class AppLoader {
     await TenkaManager.initialize();
     await Translator.initialize();
     await AnilistAuth.initialize();
+    await InternalServer.initialize();
+    MediaKit.ensureInitialized();
     ready = true;
     AppEvents.controller.add(AppEvent.initialized);
-    initializeAfterLoad();
+    await initializeAfterLoad();
   }
 
   static Future<void> initializeAfterLoad() async {
-    await Deeplink.initializeAfterLoad();
-    AppEvents.controller.add(AppEvent.afterAnitialized);
+    await InternalDeeplink.initializeAfterLoad();
+    AppEvents.controller.add(AppEvent.afterInitialized);
   }
 }

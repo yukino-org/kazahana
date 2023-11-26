@@ -81,6 +81,8 @@ class AnilistMediaTile extends StatelessWidget {
                 media.titleUserPreferred,
                 style: Theme.of(context).textTheme.bodyMedium,
                 textAlign: TextAlign.center,
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
             SizedBox(height: context.r.scale(0.25)),

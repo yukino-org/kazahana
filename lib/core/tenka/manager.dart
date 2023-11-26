@@ -17,7 +17,7 @@ abstract class TenkaManager {
       ),
     );
     repository = TenkaRepository(
-      baseDir: path.join(Paths.docsDir.path, 'tenka'),
+      baseDir: path.join(Paths.dataDir.path, 'tenka'),
     );
     await repository.initialize();
     extractors = <String, dynamic>{};

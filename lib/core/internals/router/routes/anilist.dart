@@ -1,13 +1,13 @@
 import 'package:kazahana/core/anilist/exports.dart';
 import 'package:kazahana/core/internals/router/route.dart';
 
-class AnilistAuthRoute extends InternalRoute {
+class InternalAnilistAuthRoute extends InternalRoute {
   @override
-  bool matches(final String route) => route.startsWith(routeName);
+  bool matches(final InternalRouteRequest req) => req.path == routeName;
 
   @override
-  Future<void> handle(final String route) async {
-    final AnilistToken token = AnilistToken.parseUrl(route);
+  Future<void> handle(final InternalRouteRequest req) async {
+    final AnilistToken token = AnilistToken.parseHash(req.hash);
     await AnilistAuth.authenticate(token);
   }
 

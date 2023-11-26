@@ -9,7 +9,7 @@ import 'package:perks/perks.dart';
 
 abstract class SettingsDatabase {
   static final PerksFileAdapter adapter =
-      PerksFileAdapter(path.join(Paths.docsDir.path, 'settings.db'));
+      PerksFileAdapter(path.join(Paths.dataDir.path, 'settings.db'));
 
   static bool ready = false;
   static late SettingsSchema settings;

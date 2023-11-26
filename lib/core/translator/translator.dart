@@ -15,7 +15,6 @@ abstract class Translator {
 
   static Future<void> initialize() async {
     await updateCurrentTranslation();
-
     AppEvents.stream.listen((final AppEvent event) async {
       if (event != AppEvent.settingsChange) return;
       await updateCurrentTranslation();

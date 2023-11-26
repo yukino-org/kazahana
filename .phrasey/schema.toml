@@ -283,3 +283,7 @@ description = "Pink"
 [[keys]]
 name = "Rose"
 description = "Rose"
+
+[[keys]]
+name = "YouCanCloseThisWindow"
+description = "You can close this window"

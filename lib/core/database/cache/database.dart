@@ -9,7 +9,7 @@ abstract class CacheDatabase {
   static const String kExpiresAtKey = 'expires_at';
   static const int recommendedTtlMs = 21600000;
 
-  static final String cacheFilePath = path.join(Paths.docsDir.path, 'cache.db');
+  static final String cacheFilePath = path.join(Paths.dataDir.path, 'cache.db');
 
   static final PerksNameValueBox<JsonMap> box = PerksNameValueBox<JsonMap>(
     adapter: PerksFileAdapter(cacheFilePath),

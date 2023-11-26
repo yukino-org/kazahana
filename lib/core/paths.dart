@@ -2,10 +2,10 @@ import 'dart:io';
 import 'package:path_provider/path_provider.dart' as path_provider;
 
 abstract class Paths {
-  static late final Directory docsDir;
+  static late final Directory dataDir;
 
   static Future<void> initialize() async {
-    docsDir = await path_provider.getApplicationDocumentsDirectory();
+    dataDir = await path_provider.getApplicationSupportDirectory();
   }
 }
 
