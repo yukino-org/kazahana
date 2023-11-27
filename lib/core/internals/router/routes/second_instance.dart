@@ -3,11 +3,11 @@ import 'package:kazahana/core/internals/router/route.dart';
 
 class InternalSecondInstanceRoute extends InternalRoute {
   @override
-  bool matches(final InternalRouteRequest req) => req.path == routeName;
+  bool matches(final InternalRouteUri uri) => uri.path == routeName;
 
   @override
-  Future<void> handle(final InternalRouteRequest req) async {
-    final String? deeplink = req.queries['deeplink'];
+  Future<void> handle(final InternalRouteUri uri) async {
+    final String? deeplink = uri.queries['deeplink'];
     if (deeplink != null) {
       InternalDeeplink.handle(deeplink);
     }
@@ -15,6 +15,14 @@ class InternalSecondInstanceRoute extends InternalRoute {
 
   static const String routeName = '/second-instance';
 
-  static String constructRouteName(final String deeplink) =>
-      '$routeName${Uri.encodeQueryComponent(deeplink)}';
+  static String constructRouteName(final String deeplink) {
+    final InternalRouteUri uri = InternalRouteUri(
+      path: routeName,
+      queries: <String, String>{
+        'deeplink': deeplink,
+      },
+      hash: '',
+    );
+    return uri.toString();
+  }
 }

@@ -26,11 +26,10 @@ abstract class InternalDeeplink {
       resolvedPath = resolvedPath.replaceFirst(fullScheme, '');
     }
     debugPrint('Incoming deeplink: $resolvedPath');
-    final InternalRouteRequest routeReq =
-        InternalRouteRequest.fromRawPath(path);
-    final InternalRoute? internalRoute = InternalRoutes.findMatch(routeReq);
-    if (internalRoute != null) {
-      internalRoute.handle(routeReq);
+    final InternalRouteUri uri = InternalRouteUri.fromRawPath(path);
+    final InternalRoute? route = InternalRoutes.findMatch(uri);
+    if (route != null) {
+      route.handle(uri);
       return;
     }
     gNavigatorKey.currentState!.pushNamed(resolvedPath);

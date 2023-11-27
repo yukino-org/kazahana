@@ -19,11 +19,10 @@ abstract class InternalServer {
   static Future<void> listen() async {
     server = await HttpServer.bind(host, port);
     server.forEach((final HttpRequest req) {
-      final InternalRouteRequest routeReq =
-          InternalRouteRequest.fromUri(req.uri);
-      final InternalRoute? route = InternalRoutes.findMatch(routeReq);
+      final InternalRouteUri uri = InternalRouteUri.fromUri(req.uri);
+      final InternalRoute? route = InternalRoutes.findMatch(uri);
       if (route != null) {
-        route.handle(routeReq);
+        route.handle(uri);
         req.response.statusCode = successCode;
         req.response.close();
       }
