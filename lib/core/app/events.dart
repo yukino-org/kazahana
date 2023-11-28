@@ -13,8 +13,8 @@ class AppEvent {
   @override
   int get hashCode => Object.hash(name, data);
 
-  static const AppEvent initialized = AppEvent('initialized');
-  static const AppEvent afterInitialized = AppEvent('after_initialized');
+  static const AppEvent initializedL1 = AppEvent('initialized_l1');
+  static const AppEvent initializedL2 = AppEvent('initialized_l2');
   static const AppEvent anilistStateChange = AppEvent('anilist_state_change');
   static const AppEvent settingsChange = AppEvent('settings_change');
   static const AppEvent translationsChange = AppEvent('translations_change');

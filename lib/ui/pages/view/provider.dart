@@ -29,19 +29,17 @@ class ViewPageProvider extends StatedChangeNotifier {
       notifyListeners();
       return;
     }
-
     await fetch();
   }
 
   Future<void> fetch() async {
     media.loading();
     notifyListeners();
-
     try {
       media.finish(await AnilistMediaEndpoints.fetchId(mediaId));
       await media.value.fetchAll();
-    } catch (err, trace) {
-      media.fail(err, trace);
+    } catch (error, stackTrace) {
+      media.fail(error, stackTrace);
     }
     if (!mounted) return;
     notifyListeners();

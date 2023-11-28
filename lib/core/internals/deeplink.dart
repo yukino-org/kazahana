@@ -8,7 +8,7 @@ import 'package:uni_links/uni_links.dart' as uni_links;
 abstract class InternalDeeplink {
   static String? initialLink;
 
-  static Future<void> initializeAfterLoad() async {
+  static Future<void> initialize() async {
     if (Platform.isAndroid) {
       final String? path = await uni_links.getInitialLink();
       if (path != null) handle(path);

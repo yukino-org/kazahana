@@ -20,8 +20,8 @@ class SearchPageProvider extends StatedChangeNotifier {
           await AnilistMediaEndpoints.search(terms),
         ),
       );
-    } catch (err, trace) {
-      results.fail(err, trace);
+    } catch (error, stackTrace) {
+      results.fail(error, stackTrace);
     }
     if (!mounted) return;
     notifyListeners();

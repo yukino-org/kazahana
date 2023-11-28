@@ -287,3 +287,11 @@ description = "Rose"
 [[keys]]
 name = "YouCanCloseThisWindow"
 description = "You can close this window"
+
+[[keys]]
+name = "TenkaRepositories"
+description = "Tenka repositories"
+
+[[keys]]
+name = "Add"
+description = "Add"

@@ -42,6 +42,9 @@ abstract class TenkaManager {
   static Future<void> uninstallStore(final String storeUrl) =>
       repository.uninstall(storeUrl);
 
+  static Iterable<String> allStoresIterable() => repository.installed.keys;
+  static List<String> allStores() => allStoresIterable().toList();
+
   static TenkaStoreRepository? findStoreFromMetadataId(
     final String metadataId,
   ) =>

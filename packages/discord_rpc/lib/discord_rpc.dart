@@ -45,9 +45,9 @@ class DiscordRPC {
     final WebSocketChannel ws = WebSocketChannel.connect(uri);
     try {
       await ws.ready;
-    } catch (err) {
-      if (err is SocketException &&
-          err.message.contains('Connection refused')) {
+    } catch (error) {
+      if (error is SocketException &&
+          error.message.contains('Connection refused')) {
         return null;
       }
       rethrow;

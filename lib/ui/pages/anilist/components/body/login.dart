@@ -82,10 +82,10 @@ class AnilistPageLoginBody extends StatelessWidget {
                   if (!didLaunch) {
                     throw Exception('Failed to launch URL');
                   }
-                } catch (err) {
+                } catch (error) {
                   if (!context.mounted) return;
                   Toast(
-                    content: Text('${context.t.somethingWentWrong} $err'),
+                    content: Text('${context.t.somethingWentWrong} $error'),
                   ).show();
                 }
               },

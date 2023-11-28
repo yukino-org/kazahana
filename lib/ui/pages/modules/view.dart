@@ -1,5 +1,6 @@
 import 'package:kazahana/core/exports.dart';
 import 'package:kazahana/ui/exports.dart';
+import 'package:kazahana/ui/pages/modules/components/exports.dart';
 import 'package:kazahana/ui/pages/modules/provider.dart';
 
 class ModulesPage extends StatelessWidget {
@@ -13,10 +14,10 @@ class ModulesPage extends StatelessWidget {
   }) =>
       () {
         if (TenkaManager.isModuleInstalled(metadata)) {
-          provider.uninstall(metadata);
+          provider.uninstallTenkaModule(metadata);
           return;
         }
-        provider.install(metadata);
+        provider.installTenkaModule(metadata);
       };
 
   Widget buildModuleTile({
@@ -104,7 +105,22 @@ class ModulesPage extends StatelessWidget {
             final _,
           ) =>
               Scaffold(
-            appBar: AppBar(title: Text(context.t.modules)),
+            appBar: AppBar(
+              title: Text(context.t.modules),
+              actions: <Widget>[
+                IconButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (final _) => ModulesPageTenkaRepositoriesDialog(
+                        provider: provider,
+                      ),
+                    );
+                  },
+                  icon: const Icon(Icons.settings),
+                ),
+              ],
+            ),
             body: SingleChildScrollView(
               child: Column(
                 children: TenkaManager.allModulesIterable()
