@@ -37,10 +37,10 @@ class ModulesPage extends StatelessWidget {
       icon = Icons.hourglass_bottom_rounded;
     } else if (isInstalled) {
       icon = Icons.done_rounded;
-      iconColor = Theme.of(context).colorScheme.primary;
+      iconColor = ColorTheme.of(context).colorScheme.primary;
     } else {
       icon = Icons.add_rounded;
-      iconColor = Theme.of(context).colorScheme.primary;
+      iconColor = ColorTheme.of(context).colorScheme.primary;
     }
 
     final VoidCallback? onPressed = isInstalling || isUninstalling
@@ -70,13 +70,13 @@ class ModulesPage extends StatelessWidget {
             if (metadata.nsfw)
               TextSpan(
                 text: '  (${context.t.nsfw})',
-                style: Theme.of(context)
+                style: ColorTheme.of(context)
                     .textTheme
                     .labelSmall
                     ?.copyWith(color: ForegroundColors.red),
               ),
           ],
-          style: Theme.of(context).textTheme.titleSmall,
+          style: ColorTheme.of(context).textTheme.titleSmall,
         ),
       ),
       subtitle: Text(

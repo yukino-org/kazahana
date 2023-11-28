@@ -24,6 +24,6 @@ class AnilistMediaRow extends StatelessWidget {
   static const double tileWidthAny = 8;
   static const double tileWidthMd = 9;
 
-  static double getTileWidth(final RelativeScaler r) =>
+  static double getTileWidth(final ResponsiveData r) =>
       r.scale(tileWidthAny, md: tileWidthMd);
 }

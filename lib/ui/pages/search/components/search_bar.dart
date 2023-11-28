@@ -88,8 +88,9 @@ class _SearchBarState extends State<SearchBar> {
                     SizedBox(width: context.r.scale(0.5)),
                     Icon(
                       Icons.search_rounded,
-                      size: Theme.of(context).textTheme.bodyLarge?.fontSize,
-                      color: Theme.of(context).textTheme.bodySmall?.color,
+                      size:
+                          ColorTheme.of(context).textTheme.bodyLarge?.fontSize,
+                      color: ColorTheme.of(context).textTheme.bodySmall?.color,
                     ),
                     SizedBox(width: context.r.scale(0.4)),
                     Expanded(
@@ -117,9 +118,14 @@ class _SearchBarState extends State<SearchBar> {
                           padding: EdgeInsets.all(context.r.scale(0.2)),
                           child: Icon(
                             Icons.close_rounded,
-                            size:
-                                Theme.of(context).textTheme.bodyLarge?.fontSize,
-                            color: Theme.of(context).textTheme.bodySmall?.color,
+                            size: ColorTheme.of(context)
+                                .textTheme
+                                .bodyLarge
+                                ?.fontSize,
+                            color: ColorTheme.of(context)
+                                .textTheme
+                                .bodySmall
+                                ?.color,
                           ),
                         ),
                         onTap: () => onCloseButtonTap(provider),

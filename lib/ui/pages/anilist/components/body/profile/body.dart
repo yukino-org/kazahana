@@ -50,8 +50,8 @@ class AnilistPageProfileBodyBody extends StatelessWidget {
               additionalBottomChips: <Widget>[
                 AnilistMediaTile.buildChip(
                   context: context,
-                  backgroundColor: Theme.of(context).colorScheme.primary,
-                  textColor: Theme.of(context).colorScheme.onPrimary,
+                  backgroundColor: ColorTheme.of(context).colorScheme.primary,
+                  textColor: ColorTheme.of(context).colorScheme.onPrimary,
                   child: Text(getMediaProgressText(x)),
                 ),
               ],

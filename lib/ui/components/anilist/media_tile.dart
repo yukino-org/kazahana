@@ -11,12 +11,13 @@ class AnilistMediaTile extends StatelessWidget {
   final AnilistMedia media;
   final List<Widget> additionalBottomChips;
 
+// TODO
   @override
-  Widget build(final BuildContext context) => InkWell(
+  Widget build(final BuildContext context) => GestureDetector(
         onTap: () {
           Navigator.of(context).pusher.pushToViewPageFromMedia(media);
         },
-        borderRadius: BorderRadius.circular(context.r.scale(0.5)),
+        // borderRadius: BorderRadius.circular(context.r.scale(0.5)),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
@@ -28,7 +29,7 @@ class AnilistMediaTile extends StatelessWidget {
                   children: <Widget>[
                     Positioned.fill(
                       child: Container(
-                        color: Theme.of(context).bottomAppBarTheme.color,
+                        color: context.colorScheme.surface,
                       ),
                     ),
                     Positioned.fill(
@@ -79,7 +80,7 @@ class AnilistMediaTile extends StatelessWidget {
             Flexible(
               child: Text(
                 media.titleUserPreferred,
-                style: Theme.of(context).textTheme.bodyMedium,
+                style: context.textTheme.body,
                 textAlign: TextAlign.center,
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
@@ -101,7 +102,7 @@ class AnilistMediaTile extends StatelessWidget {
   }) =>
       DecoratedBox(
         decoration: BoxDecoration(
-          color: backgroundColor ?? Theme.of(context).colorScheme.background,
+          color: backgroundColor ?? context.colorScheme.background,
           borderRadius: BorderRadius.circular(context.r.scale(0.3)),
         ),
         child: Padding(
@@ -112,20 +113,16 @@ class AnilistMediaTile extends StatelessWidget {
             right: context.r.scale(0.25),
           ),
           child: DefaultTextStyle(
-            style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                  fontWeight: FontWeight.normal,
-                  color:
-                      textColor ?? Theme.of(context).colorScheme.onBackground,
-                ),
+            style: context.textTheme.caption.copyWith(
+              color: textColor ?? context.colorScheme.onBackground,
+            ),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 if (icon != null) ...<Widget>[
                   IconTheme(
-                    data: Theme.of(context)
-                        .iconTheme
-                        .copyWith(size: context.r.scale(1)),
+                    data: IconThemeData(size: context.r.scale(1)),
                     child: icon,
                   ),
                   SizedBox(width: context.r.scale(0.25)),
@@ -200,22 +197,22 @@ class AnilistMediaTile extends StatelessWidget {
   }) =>
       AnilistMediaTile.buildChip(
         context: context,
-        backgroundColor: ForegroundColors.red,
+        backgroundColor: Colors.red,
         child: Text(context.t.nsfw),
       );
 
   static const Icon ratingIcon = Icon(
-    Icons.star_rounded,
-    color: ForegroundColors.yellow,
+    Symbols.star_rounded,
+    color: Colors.yellow,
   );
 
   static const Icon ongoingIcon = Icon(
-    Icons.fiber_manual_record_outlined,
-    color: ForegroundColors.green,
+    Symbols.fiber_manual_record_rounded,
+    color: Colors.green,
   );
 
   static const Icon airdateIcon = Icon(
-    Icons.date_range_rounded,
-    color: ForegroundColors.fuchsia,
+    Symbols.date_range_rounded,
+    color: Colors.fuchsia,
   );
 }

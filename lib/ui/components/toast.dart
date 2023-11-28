@@ -1,6 +1,5 @@
 import 'package:kazahana/core/exports.dart';
-import 'package:kazahana/ui/components/super_imposer.dart';
-import 'package:kazahana/ui/utils/exports.dart';
+import 'package:kazahana/ui/exports.dart';
 
 class Toast extends StatefulWidget {
   const Toast({
@@ -68,21 +67,18 @@ class _ToastState extends State<Toast> {
                 padding: EdgeInsets.all(context.r.scale(0.4)),
                 child: SizedBox(
                   width: double.infinity,
-                  child: Material(
-                    color: Colors.transparent,
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).bottomAppBarTheme.color,
-                        borderRadius:
-                            BorderRadius.circular(context.r.scale(0.25)),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.all(context.r.scale(0.5)),
-                        child: Row(
-                          children: <Widget>[
-                            widget.content,
-                          ],
-                        ),
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: context.colorScheme.secondary,
+                      borderRadius:
+                          BorderRadius.circular(context.r.scale(0.25)),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.all(context.r.scale(0.5)),
+                      child: Row(
+                        children: <Widget>[
+                          widget.content,
+                        ],
                       ),
                     ),
                   ),

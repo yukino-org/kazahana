@@ -119,7 +119,7 @@ class _AnilistControlsHeaderDelegate extends SliverPersistentHeaderDelegate {
         height: buttonHeight,
         child: TextButton(
           style: TextButton.styleFrom(
-            backgroundColor: Theme.of(context).bottomAppBarTheme.color,
+            backgroundColor: ColorTheme.of(context).bottomAppBarTheme.color,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(context.r.scale(0.25)),
             ),
@@ -146,7 +146,7 @@ class _AnilistControlsHeaderDelegate extends SliverPersistentHeaderDelegate {
 
   @override
   Widget build(final BuildContext context, final _, final __) => ColoredBox(
-        color: Theme.of(context).scaffoldBackgroundColor,
+        color: ColorTheme.of(context).scaffoldBackgroundColor,
         child: Column(
           children: <Widget>[
             SizedBox(height: verticalPaddingSize),
@@ -214,10 +214,10 @@ class _AnilistControlsHeaderDelegate extends SliverPersistentHeaderDelegate {
   double get maxExtent => fixedHeight;
 
   static double get buttonHeight =>
-      RelativeScaleData.fromSettingsNoResponsive().scale(2);
+      ResponsiveData.fromSettingsNoResponsive().scale(2);
 
   static double get verticalPaddingSize =>
-      RelativeScaleData.fromSettingsNoResponsive().scale(0.3);
+      ResponsiveData.fromSettingsNoResponsive().scale(0.3);
 
   static double get fixedHeight => buttonHeight + (verticalPaddingSize * 2) + 1;
 }

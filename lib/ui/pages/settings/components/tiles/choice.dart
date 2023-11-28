@@ -58,7 +58,7 @@ class _MultiChoiceListTileState<T> extends State<MultiChoiceListTile<T>> {
                       bottom: context.r.scale(0.5),
                     ),
                     child: DefaultTextStyle(
-                      style: Theme.of(context).textTheme.titleLarge!,
+                      style: ColorTheme.of(context).textTheme.titleLarge!,
                       child: widget.title,
                     ),
                   ),

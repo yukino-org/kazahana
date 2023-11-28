@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:kazahana/core/utils/exports.dart';
-import 'package:kazahana/ui/utils/relative_scale.dart';
+import 'package:kazahana/ui/utils/responsive.dart';
 
 part 'schema.g.dart';
 
@@ -9,12 +9,10 @@ class SettingsSchema {
   SettingsSchema({
     this.locale,
     this.ignoreSSLCertificate = true,
-    this.darkMode = true,
-    this.primaryColor,
-    this.backgroundColor,
+    this.theme,
+    this.themeMode,
     this.disableAnimations = false,
-    this.useSystemPreferredTheme = false,
-    this.scaleMultiplier = RelativeScaleData.defaultScaleMultiplier,
+    this.scaleMultiplier = ResponsiveData.defaultScaleMultiplier,
   });
 
   factory SettingsSchema.fromJson(final JsonMap json) =>
@@ -23,11 +21,9 @@ class SettingsSchema {
   @JsonKey(fromJson: _localeFromJson, toJson: _localeToJson)
   Locale? locale;
   bool ignoreSSLCertificate;
-  bool darkMode;
-  String? primaryColor;
-  String? backgroundColor;
+  String? theme;
+  String? themeMode;
   bool disableAnimations;
-  bool useSystemPreferredTheme;
   double scaleMultiplier;
 
   JsonMap toJson() => _$SettingsSchemaToJson(this);

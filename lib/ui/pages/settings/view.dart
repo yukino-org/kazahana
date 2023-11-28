@@ -39,7 +39,7 @@ class _SettingsPageState extends State<SettingsPage> {
           appBar,
           const Divider(height: 1, thickness: 1),
           Container(
-            color: Theme.of(context).bottomAppBarTheme.color,
+            color: ColorTheme.of(context).bottomAppBarTheme.color,
             height: appBarHeight,
             width: double.infinity,
             padding: EdgeInsets.symmetric(horizontal: context.r.scale(0.5)),
@@ -47,7 +47,7 @@ class _SettingsPageState extends State<SettingsPage> {
               child: ButtonTheme(
                 alignedDropdown: true,
                 child: Container(
-                  color: Theme.of(context).bottomAppBarTheme.color,
+                  color: ColorTheme.of(context).bottomAppBarTheme.color,
                   child: DropdownButton<_SettingsCategory>(
                     isExpanded: true,
                     value: category,

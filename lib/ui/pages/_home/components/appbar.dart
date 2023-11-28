@@ -39,9 +39,9 @@ class _UnderScoreHomePageAppBarState extends State<UnderScoreHomePageAppBar> {
         centerTitle: true,
         title: Text(
           AppMeta.name,
-          style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+          style: ColorTheme.of(context).textTheme.headlineSmall!.copyWith(
                 fontFamily: Fonts.greatVibes,
-                color: Theme.of(context).textTheme.bodyLarge?.color,
+                color: ColorTheme.of(context).textTheme.bodyLarge?.color,
               ),
         ),
         actions: <Widget>[

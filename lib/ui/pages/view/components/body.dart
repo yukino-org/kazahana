@@ -104,8 +104,8 @@ class _ViewPageBodyState extends State<ViewPageBody>
             floating: true,
             delegate: _SliverTabBarHeaderDelegate(
               TabBar(
-                indicatorColor: Theme.of(context).colorScheme.primary,
-                labelStyle: Theme.of(context).textTheme.bodyLarge,
+                indicatorColor: ColorTheme.of(context).colorScheme.primary,
+                labelStyle: ColorTheme.of(context).textTheme.bodyLarge,
                 controller: tabController,
                 tabs: tabs
                     .asMap()
@@ -156,8 +156,8 @@ class _SliverTabBarHeaderDelegate extends SliverPersistentHeaderDelegate {
 
   @override
   Widget build(final BuildContext context, final _, final __) => DecoratedBox(
-        decoration:
-            BoxDecoration(color: Theme.of(context).scaffoldBackgroundColor),
+        decoration: BoxDecoration(
+            color: ColorTheme.of(context).scaffoldBackgroundColor),
         child: tabBar,
       );
 

@@ -17,7 +17,7 @@ abstract class RoutePage {
     final Widget child,
   ) =>
       SharedAxisTransition(
-        fillColor: Theme.of(context).scaffoldBackgroundColor,
+        fillColor: context.colorScheme.background,
         animation: animation,
         secondaryAnimation: secondaryAnimation,
         transitionType: SharedAxisTransitionType.scaled,

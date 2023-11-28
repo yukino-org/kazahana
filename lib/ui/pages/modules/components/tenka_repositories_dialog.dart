@@ -46,7 +46,7 @@ class _ModulesPageTenkaRepositoriesDialogState
               children: <Widget>[
                 Text(
                   context.t.tenkaRepositories,
-                  style: Theme.of(context).textTheme.headlineSmall,
+                  style: ColorTheme.of(context).textTheme.headlineSmall,
                 ),
                 ...TenkaManager.allStoresIterable().map(
                   (final String x) => ListTile(

@@ -1,7 +1,7 @@
 import 'dart:ui';
 import 'package:kazahana/core/exports.dart';
 
-class DraggableScrollBehavior extends MaterialScrollBehavior {
+class DraggableScrollBehavior extends ScrollBehavior {
   @override
   Set<PointerDeviceKind> get dragDevices => <PointerDeviceKind>{
         PointerDeviceKind.touch,

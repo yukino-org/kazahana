@@ -12,9 +12,9 @@ class ViewPageHero extends StatelessWidget {
   @override
   Widget build(final BuildContext context) {
     final Color chipBackgroundColor =
-        Theme.of(context).colorScheme.secondaryContainer;
+        ColorTheme.of(context).colorScheme.secondaryContainer;
     final Color chipTextColor =
-        Theme.of(context).colorScheme.onSecondaryContainer;
+        ColorTheme.of(context).colorScheme.onSecondaryContainer;
     final double bannerHeight = context.r.scale(10, md: 15);
 
     return Column(
@@ -44,7 +44,7 @@ class ViewPageHero extends StatelessWidget {
                       end: Alignment.bottomCenter,
                       colors: <Color>[
                         Colors.transparent,
-                        Theme.of(context)
+                        ColorTheme.of(context)
                             .bottomAppBarTheme
                             .color!
                             .withOpacity(0.75),
@@ -84,9 +84,12 @@ class ViewPageHero extends StatelessWidget {
             children: <Widget>[
               Text(
                 media.titleUserPreferred,
-                style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                style: ColorTheme.of(context)
+                    .textTheme
+                    .headlineMedium!
+                    .copyWith(
                       fontWeight: FontWeight.bold,
-                      color: Theme.of(context).textTheme.bodyLarge!.color,
+                      color: ColorTheme.of(context).textTheme.bodyLarge!.color,
                     ),
                 textAlign: TextAlign.center,
               ),
@@ -99,8 +102,8 @@ class ViewPageHero extends StatelessWidget {
                     '${media.season?.getTitleCase(context.t) ?? Translation.unk} ${media.seasonYear ?? Translation.unk}',
                   media.status.getTitleCase(context.t),
                 ].join(' | '),
-                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                      color: Theme.of(context).textTheme.bodySmall!.color,
+                style: ColorTheme.of(context).textTheme.bodyLarge!.copyWith(
+                      color: ColorTheme.of(context).textTheme.bodySmall!.color,
                     ),
               ),
               SizedBox(height: context.r.scale(0.75)),

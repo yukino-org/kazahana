@@ -58,7 +58,7 @@ class UnderScoreHomePageBottomBar extends StatelessWidget {
                   builder: (final BuildContext context) => TextButton(
                     style: TextButton.styleFrom(
                       backgroundColor:
-                          Theme.of(context).colorScheme.surfaceVariant,
+                          ColorTheme.of(context).colorScheme.surfaceVariant,
                       padding: EdgeInsets.symmetric(
                         vertical: context.r.scale(0.5),
                       ),
@@ -80,13 +80,13 @@ class UnderScoreHomePageBottomBar extends StatelessWidget {
               SizedBox(width: context.r.scale(0.5)),
               DecoratedBox(
                 decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.surfaceVariant,
+                  color: ColorTheme.of(context).colorScheme.surfaceVariant,
                   borderRadius: BorderRadius.circular(context.r.scale(999)),
                 ),
                 child: IconTheme(
                   data: IconThemeData(
-                    color: Theme.of(context).colorScheme.onSurfaceVariant,
-                    size: Theme.of(context).textTheme.titleSmall!.fontSize,
+                    color: ColorTheme.of(context).colorScheme.onSurfaceVariant,
+                    size: ColorTheme.of(context).textTheme.titleSmall!.fontSize,
                   ),
                   child: Row(
                     children: <Widget>[

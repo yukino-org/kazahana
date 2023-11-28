@@ -42,7 +42,7 @@ class SuperImposer extends StatefulWidget {
 }
 
 class _SuperImposerState extends State<SuperImposer> {
-  StreamSubscription<void>? subscription;
+  late StreamSubscription<void> subscription;
 
   @override
   void initState() {
@@ -55,8 +55,7 @@ class _SuperImposerState extends State<SuperImposer> {
 
   @override
   void dispose() {
-    subscription?.cancel();
-
+    subscription.cancel();
     super.dispose();
   }
 

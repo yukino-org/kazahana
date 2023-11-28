@@ -41,10 +41,10 @@ class ViewPageOverview extends StatelessWidget {
                             <Widget>[
                               AnilistMediaTile.buildChip(
                                 context: context,
-                                backgroundColor: Theme.of(context)
+                                backgroundColor: ColorTheme.of(context)
                                     .colorScheme
                                     .inverseSurface,
-                                textColor: Theme.of(context)
+                                textColor: ColorTheme.of(context)
                                     .colorScheme
                                     .onInverseSurface,
                                 child: Text(
@@ -65,7 +65,7 @@ class ViewPageOverview extends StatelessWidget {
             Flexible(
               child: Text(
                 character.node.nameUserPreferred,
-                style: Theme.of(context).textTheme.bodyLarge,
+                style: ColorTheme.of(context).textTheme.bodyLarge,
                 textAlign: TextAlign.center,
               ),
             ),
@@ -88,7 +88,7 @@ class ViewPageOverview extends StatelessWidget {
               HorizontalBodyPadding(
                 Text(
                   context.t.characters,
-                  style: Theme.of(context).textTheme.titleMedium,
+                  style: ColorTheme.of(context).textTheme.titleMedium,
                 ),
               ),
               SizedBox(height: context.r.scale(0.75, md: 1)),
@@ -105,7 +105,7 @@ class ViewPageOverview extends StatelessWidget {
                 HorizontalBodyPadding(
                   Text(
                     context.t.relations,
-                    style: Theme.of(context).textTheme.titleMedium,
+                    style: ColorTheme.of(context).textTheme.titleMedium,
                   ),
                 ),
                 SizedBox(height: context.r.scale(0.75, md: 1)),
@@ -119,10 +119,10 @@ class ViewPageOverview extends StatelessWidget {
                             additionalBottomChips: <Widget>[
                               AnilistMediaTile.buildChip(
                                 context: context,
-                                backgroundColor: Theme.of(context)
+                                backgroundColor: ColorTheme.of(context)
                                     .colorScheme
                                     .inverseSurface,
-                                textColor: Theme.of(context)
+                                textColor: ColorTheme.of(context)
                                     .colorScheme
                                     .onInverseSurface,
                                 child: Text(

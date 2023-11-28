@@ -295,3 +295,35 @@ description = "Tenka repositories"
 [[keys]]
 name = "Add"
 description = "Add"
+
+[[keys]]
+name = "Light"
+description = "Light"
+
+[[keys]]
+name = "Dark"
+description = "Dark"
+
+[[keys]]
+name = "Black"
+description = "Black"
+
+[[keys]]
+name = "Slate"
+description = "Slate"
+
+[[keys]]
+name = "Gray"
+description = "Gray"
+
+[[keys]]
+name = "Zinc"
+description = "Zinc"
+
+[[keys]]
+name = "Neutral"
+description = "Neutral"
+
+[[keys]]
+name = "Stone"
+description = "Stone"

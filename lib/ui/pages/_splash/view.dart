@@ -16,14 +16,14 @@ class UnderScoreSplashPage extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     AppMeta.name,
-                    style: Theme.of(context)
+                    style: ColorTheme.of(context)
                         .textTheme
                         .displayMedium!
                         .copyWith(fontFamily: Fonts.greatVibes),
                   ),
                   Text(
                     'v${AppMeta.version}',
-                    style: Theme.of(context).textTheme.bodySmall,
+                    style: ColorTheme.of(context).textTheme.bodySmall,
                   ),
                 ],
               ),
@@ -34,10 +34,11 @@ class UnderScoreSplashPage extends StatelessWidget {
                 padding: EdgeInsets.all(context.r.scale(1)),
                 child: Text(
                   AppMeta.yuki,
-                  style: Theme.of(context)
+                  style: ColorTheme.of(context)
                       .textTheme
                       .headlineMedium!
-                      .copyWith(color: Theme.of(context).colorScheme.primary),
+                      .copyWith(
+                          color: ColorTheme.of(context).colorScheme.primary),
                 ),
               ),
             ),

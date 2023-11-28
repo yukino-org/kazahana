@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:kazahana/core/app/exports.dart';
 import 'package:kazahana/core/database/exports.dart';
@@ -40,8 +39,4 @@ abstract class Translator {
     final JsonMap parsed = json.decode(content) as JsonMap;
     return Translation(parsed);
   }
-
-  static Locale get locale => currentTranslation.locale;
-
-  static String get identifier => locale.code;
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:kazahana/core/exports.dart';
 import 'package:kazahana/core/internals/exports.dart';
 import 'package:kazahana/ui/exports.dart';
 
@@ -8,6 +9,7 @@ Future<void> main(final List<String> args) async {
   final bool isFirstInstance = await _ensureFirstInstance(
     initialLink: initialLink,
   );
+  await AppLoader.initializeLevel0();
   runApp(isFirstInstance ? const BaseApp() : const DupedApp());
 }
 

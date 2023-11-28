@@ -34,7 +34,7 @@ class UnderScoreHomePageBody extends StatelessWidget {
       Padding(
         padding: HorizontalBodyPadding.padding(context)
             .copyWith(bottom: context.r.scale(0.75, md: 1)),
-        child: Text(text, style: Theme.of(context).textTheme.titleMedium),
+        child: Text(text, style: ColorTheme.of(context).textTheme.titleMedium),
       );
 
   Widget buildTrendsSlideshow(final StatedValue<List<AnilistMedia>> data) =>

@@ -1,57 +1,30 @@
 import 'package:kazahana/core/exports.dart';
 
-class RelativeScaler extends InheritedWidget {
-  const RelativeScaler({
+class Responsive extends InheritedWidget {
+  const Responsive({
     required this.data,
     required super.child,
     super.key,
   });
 
-  factory RelativeScaler.of(final BuildContext context) =>
-      context.dependOnInheritedWidgetOfExactType<RelativeScaler>()!;
+  factory Responsive.of(final BuildContext context) =>
+      context.dependOnInheritedWidgetOfExactType<Responsive>()!;
 
-  final RelativeScaleData data;
+  final ResponsiveData data;
 
   @override
-  bool updateShouldNotify(final RelativeScaler oldWidget) =>
+  bool updateShouldNotify(final Responsive oldWidget) =>
       oldWidget.data != data && oldWidget.data != data;
-
-  double scale(
-    final double any, {
-    final double? sm,
-    final double? md,
-    final double? lg,
-    final double? xl,
-  }) =>
-      data.scale(any, sm: sm, md: md, lg: lg, xl: xl);
-
-  T responsive<T>(
-    final T any, {
-    final T? sm,
-    final T? md,
-    final T? lg,
-    final T? xl,
-  }) =>
-      data.responsive(any, sm: sm, md: md, lg: lg, xl: xl);
-
-  T responsiveBuilder<T>(
-    final T Function() any, {
-    final T Function()? sm,
-    final T Function()? md,
-    final T Function()? lg,
-    final T Function()? xl,
-  }) =>
-      data.responsiveBuilder(any, sm: sm, md: md, lg: lg, xl: xl);
 }
 
-class RelativeScaleData {
-  const RelativeScaleData({
+class ResponsiveData {
+  const ResponsiveData({
     required this.multiplier,
     required this.screen,
   });
 
-  factory RelativeScaleData.fromSettingsNoResponsive() =>
-      RelativeScaleData(multiplier: getScaleMultiplier(), screen: Size.zero);
+  factory ResponsiveData.fromSettingsNoResponsive() =>
+      ResponsiveData(multiplier: getScaleMultiplier(), screen: Size.zero);
 
   final double multiplier;
   final Size screen;
@@ -63,9 +36,9 @@ class RelativeScaleData {
     final double? lg,
     final double? xl,
   }) =>
-      scaleRatio * responsive(any, sm: sm, md: md, lg: lg, xl: xl);
+      scaleRatio * value(any, sm: sm, md: md, lg: lg, xl: xl);
 
-  T responsive<T>(
+  T value<T>(
     final T any, {
     final T? sm,
     final T? md,
@@ -80,7 +53,7 @@ class RelativeScaleData {
         _ => any,
       };
 
-  T responsiveBuilder<T>(
+  T builder<T>(
     final T Function() any, {
     final T Function()? sm,
     final T Function()? md,
@@ -95,11 +68,11 @@ class RelativeScaleData {
         _ => any(),
       };
 
-  RelativeScaleData copyWith({
+  ResponsiveData copyWith({
     final double? multiplier,
     final Size? screen,
   }) =>
-      RelativeScaleData(
+      ResponsiveData(
         multiplier: multiplier ?? this.multiplier,
         screen: screen ?? this.screen,
       );
@@ -120,6 +93,6 @@ class RelativeScaleData {
       MediaQuery.of(context).size;
 }
 
-extension RelativeScalerUtils on BuildContext {
-  RelativeScaler get r => RelativeScaler.of(this);
+extension ResponsiveUtils on BuildContext {
+  ResponsiveData get r => Responsive.of(this).data;
 }

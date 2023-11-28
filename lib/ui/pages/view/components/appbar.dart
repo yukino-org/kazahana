@@ -24,7 +24,7 @@ class ViewPageAppBar extends StatelessWidget implements PreferredSizeWidget {
               dimension: context.r.scale(2),
               child: DecoratedBox(
                 decoration: BoxDecoration(
-                  color: Theme.of(context)
+                  color: ColorTheme.of(context)
                       .colorScheme
                       .background
                       .withOpacity(0.25),
@@ -36,7 +36,7 @@ class ViewPageAppBar extends StatelessWidget implements PreferredSizeWidget {
                   child: Center(
                     child: IconTheme(
                       data: IconThemeData(
-                        color: Theme.of(context).colorScheme.onBackground,
+                        color: ColorTheme.of(context).colorScheme.onBackground,
                       ),
                       child: icon,
                     ),
@@ -82,7 +82,7 @@ class ViewPageAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   double get preferredHeight =>
-      RelativeScaleData.fromSettingsNoResponsive().scale(3.5);
+      ResponsiveData.fromSettingsNoResponsive().scale(3.5);
 
   @override
   Size get preferredSize => Size.fromHeight(preferredHeight);

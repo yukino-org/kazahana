@@ -15,6 +15,7 @@ dependencies:
     flutter:
         sdk: flutter
     json_annotation: ^4.8.1
+    material_symbols_icons: ^4.2711.0
     media_kit: ^1.1.10
     media_kit_libs_video: ^1.0.4
     media_kit_video: ^1.2.4
@@ -49,7 +50,6 @@ dev_dependencies:
     json_serializable: ^6.3.1
 
 flutter:
-    uses-material-design: true
     assets:
         - assets/images/
         - assets/translations/

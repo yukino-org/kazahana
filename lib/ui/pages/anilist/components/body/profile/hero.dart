@@ -20,13 +20,13 @@ class AnilistPageProfileBodyHero extends StatelessWidget {
           children: <InlineSpan>[
             TextSpan(
               text: '$title: ',
-              style: Theme.of(context).textTheme.bodySmall,
+              style: ColorTheme.of(context).textTheme.bodySmall,
             ),
             TextSpan(
               text: value,
-              style: Theme.of(context).textTheme.bodySmall!.copyWith(
+              style: ColorTheme.of(context).textTheme.bodySmall!.copyWith(
                     fontWeight: FontWeight.bold,
-                    color: Theme.of(context).colorScheme.primary,
+                    color: ColorTheme.of(context).colorScheme.primary,
                   ),
             ),
           ],
@@ -119,7 +119,7 @@ class AnilistPageProfileBodyHero extends StatelessWidget {
                 const Divider(),
                 Text(
                   user.name,
-                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                  style: ColorTheme.of(context).textTheme.titleLarge!.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
                 ),
@@ -134,7 +134,7 @@ class AnilistPageProfileBodyHero extends StatelessWidget {
         delegate: SliverChildListDelegate.fixed(
           <Widget>[
             Container(
-              color: Theme.of(context).bottomAppBarTheme.color,
+              color: ColorTheme.of(context).bottomAppBarTheme.color,
               height: context.r.scale(10),
               child: Stack(
                 children: <Widget>[
@@ -153,7 +153,7 @@ class AnilistPageProfileBodyHero extends StatelessWidget {
                           end: Alignment.bottomCenter,
                           colors: <Color>[
                             Colors.transparent,
-                            Theme.of(context)
+                            ColorTheme.of(context)
                                 .bottomAppBarTheme
                                 .color!
                                 .withOpacity(0.75),

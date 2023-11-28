@@ -20,17 +20,18 @@ class AnilistPageLoginBody extends StatelessWidget {
                 Text(
                   AppMeta.name,
                   style: context.r
-                      .responsiveBuilder(
-                        () => Theme.of(context).textTheme.displaySmall!,
-                        md: () => Theme.of(context).textTheme.displayMedium!,
+                      .builder(
+                        () => ColorTheme.of(context).textTheme.displaySmall!,
+                        md: () =>
+                            ColorTheme.of(context).textTheme.displayMedium!,
                       )
                       .copyWith(fontFamily: Fonts.greatVibes),
                 ),
                 SizedBox(width: context.r.scale(1)),
                 Text(
                   '+',
-                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                        color: Theme.of(context)
+                  style: ColorTheme.of(context).textTheme.titleLarge!.copyWith(
+                        color: ColorTheme.of(context)
                             .textTheme
                             .titleLarge!
                             .color!
@@ -55,7 +56,7 @@ class AnilistPageLoginBody extends StatelessWidget {
             SizedBox(height: context.r.scale(1)),
             Text(
               context.t.trackYourProgressUsingAnilist,
-              style: Theme.of(context).textTheme.bodyLarge,
+              style: ColorTheme.of(context).textTheme.bodyLarge,
             ),
             SizedBox(height: context.r.scale(1.5)),
             TextButton.icon(
@@ -63,10 +64,10 @@ class AnilistPageLoginBody extends StatelessWidget {
               label: Text(context.t.loginUsingAnilist),
               style: OutlinedButton.styleFrom(
                 backgroundColor:
-                    Theme.of(context).colorScheme.secondaryContainer,
+                    ColorTheme.of(context).colorScheme.secondaryContainer,
                 foregroundColor:
-                    Theme.of(context).colorScheme.onSecondaryContainer,
-                textStyle: Theme.of(context).textTheme.bodySmall,
+                    ColorTheme.of(context).colorScheme.onSecondaryContainer,
+                textStyle: ColorTheme.of(context).textTheme.bodySmall,
                 padding:
                     EdgeInsets.symmetric(horizontal: context.r.scale(0.75)),
                 shape: RoundedRectangleBorder(

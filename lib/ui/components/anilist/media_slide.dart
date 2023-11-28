@@ -65,10 +65,7 @@ class _AnilistMediaSlideState extends State<AnilistMediaSlide>
           Text(
             widget.media.titleUserPreferred,
             style: context.r
-                .responsive(
-                  Theme.of(context).textTheme.titleLarge,
-                  md: Theme.of(context).textTheme.headlineSmall,
-                )!
+                .value(context.textTheme.heading)
                 .copyWith(fontWeight: FontWeight.bold),
           ),
           SizedBox(height: context.r.scale(0.25)),
@@ -86,7 +83,7 @@ class _AnilistMediaSlideState extends State<AnilistMediaSlide>
     super.build(context);
     return Stack(
       children: <Widget>[
-        Container(color: Theme.of(context).bottomAppBarTheme.color),
+        Container(color: context.colorScheme.secondary),
         Positioned.fill(
           child: FadeInImage(
             placeholder: MemoryImage(Placeholders.transparent1x1Image),
@@ -103,42 +100,43 @@ class _AnilistMediaSlideState extends State<AnilistMediaSlide>
               child: const SizedBox.expand(),
             ),
           ),
-        Positioned.fill(
-          child: Material(
-            type: MaterialType.transparency,
-            child: InkWell(
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: <Color>[
-                      Theme.of(context)
-                          .colorScheme
-                          .background
-                          .withOpacity(0.25),
-                      Theme.of(context)
-                          .colorScheme
-                          .background
-                          .withOpacity(0.75),
-                    ],
-                  ),
-                ),
-              ),
-              onTap: () {
-                Navigator.of(context)
-                    .pusher
-                    .pushToViewPageFromMedia(widget.media);
-              },
-            ),
-          ),
-        ),
+        // TODO
+        // Positioned.fill(
+        //   child: Material(
+        //     type: MaterialType.transparency,
+        //     child: InkWell(
+        //       child: DecoratedBox(
+        //         decoration: BoxDecoration(
+        //           gradient: LinearGradient(
+        //             begin: Alignment.topCenter,
+        //             end: Alignment.bottomCenter,
+        //             colors: <Color>[
+        //               Theme.of(context)
+        //                   .colorScheme
+        //                   .background
+        //                   .withOpacity(0.25),
+        //               Theme.of(context)
+        //                   .colorScheme
+        //                   .background
+        //                   .withOpacity(0.75),
+        //             ],
+        //           ),
+        //         ),
+        //       ),
+        //       onTap: () {
+        //         Navigator.of(context)
+        //             .pusher
+        //             .pushToViewPageFromMedia(widget.media);
+        //       },
+        //     ),
+        //   ),
+        // ),
         Align(
           alignment: Alignment.bottomLeft,
           child: IgnorePointer(
             child: Padding(
               padding: EdgeInsets.all(context.r.scale(1)),
-              child: context.r.responsiveBuilder(
+              child: context.r.builder(
                 () => Column(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.end,

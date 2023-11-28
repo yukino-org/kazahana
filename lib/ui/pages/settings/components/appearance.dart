@@ -41,9 +41,9 @@ class _ApperanceSettingsState extends State<ApperanceSettings> {
             SwitchListTile(
               title: Text(context.t.useSystemTheme),
               secondary: const Icon(Icons.highlight_rounded),
-              value: SettingsDatabase.settings.useSystemPreferredTheme,
+              value: SettingsDatabase.settings.useSystemTheme,
               onChanged: (final bool value) {
-                SettingsDatabase.settings.useSystemPreferredTheme = value;
+                SettingsDatabase.settings.useSystemTheme = value;
                 saveSettings();
               },
             ),
@@ -59,7 +59,7 @@ class _ApperanceSettingsState extends State<ApperanceSettings> {
                 ),
               ),
               value: SettingsDatabase.settings.darkMode,
-              onChanged: SettingsDatabase.settings.useSystemPreferredTheme
+              onChanged: SettingsDatabase.settings.useSystemTheme
                   ? null
                   : (final bool value) {
                       SettingsDatabase.settings.darkMode = value;
